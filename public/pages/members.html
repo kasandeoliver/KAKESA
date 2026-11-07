@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members | KAKESA</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body data-page="members">
+    <header class="navbar">
+        <a href="/" class="brand"><span class="brand-icon">K</span><span>KAKESA</span></a>
+        <nav class="workspace-nav" aria-label="Workspace">
+            <a href="/dashboard.html">Dashboard</a>
+            <a href="/pages/meetings.html">Meetings</a>
+            <a href="/pages/members.html" aria-current="page">Members</a>
+            <a href="/pages/minutes.html">Minutes</a>
+        </nav>
+        <button class="btn btn-outline" id="logoutButton" type="button">Log out</button>
+    </header>
+    <main class="workspace">
+        <div class="workspace-header">
+            <div><span class="section-label">DIRECTORY AND PERMISSIONS</span><h1>Members</h1><p class="muted">Search and manage KAKESA accounts. Role changes are administrator-only.</p></div>
+        </div>
+        <div id="pageMessage" class="message" role="status"></div>
+        <section class="panel">
+            <div class="panel-head"><h2>Member directory</h2><input id="memberSearch" class="toolbar-input" type="search" placeholder="Search name or email" aria-label="Search members"></div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Joined</th><th id="memberActionsHeading">Actions</th></tr></thead>
+                    <tbody id="memberRows"><tr><td colspan="6">Loading members...</td></tr></tbody>
+                </table>
+            </div>
+            <div class="button-row mt-16"><button id="previousPage" class="btn btn-outline" type="button">Previous</button><span id="paginationInfo" class="muted"></span><button id="nextPage" class="btn btn-outline" type="button">Next</button></div>
+        </section>
+    </main>
+    <script src="/assets/js/workspace.js" defer></script>
+</body>
+</html>

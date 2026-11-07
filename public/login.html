@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in | KAKESA</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <main class="auth-page">
+        <section class="auth-card">
+            <a href="/" class="brand"><span class="brand-icon">K</span><span>KAKESA</span></a>
+            <h1>Welcome back</h1>
+            <p>Sign in to your meeting workspace.</p>
+            <form id="authForm" data-mode="login" class="stack">
+                <div class="field">
+                    <label for="email">Email address</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" autocomplete="current-password" required>
+                </div>
+                <button class="btn btn-primary" type="submit">Sign in</button>
+            </form>
+            <p id="authMessage" class="message" role="status"></p>
+            <p>New to KAKESA? <a href="/register.html">Create an account</a></p>
+        </section>
+    </main>
+    <script src="/assets/js/auth-page.js" defer></script>
+</body>
+</html>

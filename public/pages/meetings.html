@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meetings | KAKESA</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body data-page="meetings">
+    <header class="navbar">
+        <a href="/" class="brand"><span class="brand-icon">K</span><span>KAKESA</span></a>
+        <nav class="workspace-nav" aria-label="Workspace">
+            <a href="/dashboard.html">Dashboard</a>
+            <a href="/pages/meetings.html" aria-current="page">Meetings</a>
+            <a href="/pages/members.html" id="membersLink">Members</a>
+            <a href="/pages/minutes.html">Minutes</a>
+        </nav>
+        <button class="btn btn-outline" id="logoutButton" type="button">Log out</button>
+    </header>
+    <main class="workspace">
+        <div class="workspace-header">
+            <div><span class="section-label">SCHEDULE AND PARTICIPATE</span><h1>Meetings</h1><p class="muted">Plan meetings, invite members and track attendance.</p></div>
+            <button id="showMeetingForm" class="btn btn-primary hidden" type="button">Create meeting</button>
+        </div>
+        <div id="pageMessage" class="message" role="status"></div>
+        <section class="panel hidden" id="meetingFormPanel">
+            <h2>Create a meeting</h2>
+            <form id="meetingForm" class="stack">
+                <div class="form-grid">
+                    <div class="field"><label for="meetingTitle">Meeting title</label><input id="meetingTitle" name="title" maxlength="200" required></div>
+                    <div class="field"><label for="meetingType">Meeting type</label><select id="meetingType" name="meetingType"><option value="timed">Timed</option><option value="untimed">Untimed</option></select></div>
+                    <div class="field timed-field"><label for="startTime">Start time</label><input id="startTime" name="startTime" type="datetime-local"></div>
+                    <div class="field timed-field"><label for="endTime">End time</label><input id="endTime" name="endTime" type="datetime-local"></div>
+                    <div class="field"><label for="chairpersonId">Chairperson</label><select id="chairpersonId" name="chairpersonId"><option value="">Not assigned</option></select></div>
+                    <div class="field"><label for="secretaryId">Secretary</label><select id="secretaryId" name="secretaryId"><option value="">Not assigned</option></select></div>
+                    <div class="field field-wide"><label for="meetingDescription">Description</label><textarea id="meetingDescription" name="description" maxlength="5000"></textarea></div>
+                    <div class="field field-wide"><label for="agenda">Agenda (one item per line)</label><textarea id="agenda" name="agenda" placeholder="Opening&#10;Review of previous minutes&#10;New business"></textarea></div>
+                    <div class="field field-wide"><label for="inviteSearch">Invite members</label><input id="inviteSearch" type="search" placeholder="Find members by name or email"><div id="memberPicker" class="member-picker">Loading members...</div></div>
+                </div>
+                <div class="button-row"><button type="submit" class="btn btn-primary">Save meeting</button><button type="button" class="btn btn-outline" id="cancelMeetingForm">Cancel</button></div>
+            </form>
+        </section>
+        <section class="panel">
+            <div class="panel-head"><h2>Meeting directory</h2><select id="statusFilter" class="field-control" aria-label="Filter meetings"><option value="">All statuses</option><option value="scheduled">Scheduled</option><option value="in_progress">In progress</option><option value="completed">Completed</option><option value="cancelled">Cancelled</option></select></div>
+            <div id="meetingList" class="list"><p class="empty-state">Loading meetings...</p></div>
+            <div class="button-row mt-16"><button id="previousMeetingsPage" class="btn btn-outline" type="button">Previous</button><span id="meetingPaginationInfo" class="muted"></span><button id="nextMeetingsPage" class="btn btn-outline" type="button">Next</button></div>
+        </section>
+        <section id="meetingDetails" class="panel hidden"></section>
+    </main>
+    <script src="/assets/js/workspace.js" defer></script>
+</body>
+</html>

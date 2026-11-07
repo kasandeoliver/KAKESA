@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minutes | KAKESA</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body data-page="minutes">
+    <header class="navbar">
+        <a href="/" class="brand"><span class="brand-icon">K</span><span>KAKESA</span></a>
+        <nav class="workspace-nav" aria-label="Workspace">
+            <a href="/dashboard.html">Dashboard</a>
+            <a href="/pages/meetings.html">Meetings</a>
+            <a href="/pages/members.html" id="membersLink">Members</a>
+            <a href="/pages/minutes.html" aria-current="page">Minutes</a>
+        </nav>
+        <button class="btn btn-outline" id="logoutButton" type="button">Log out</button>
+    </header>
+    <main class="workspace">
+        <div class="workspace-header">
+            <div><span class="section-label">RECORD AND APPROVE</span><h1>Meeting minutes</h1><p class="muted">Draft, save and print meeting records.</p></div>
+        </div>
+        <div id="pageMessage" class="message" role="status"></div>
+        <section class="panel">
+            <div class="field"><label for="minutesMeeting">Select a meeting</label><select id="minutesMeeting"><option value="">Loading meetings...</option></select></div>
+        </section>
+        <section id="minutesPanel" class="panel hidden">
+            <div class="panel-head"><div><h2 id="minutesTitle">Minutes</h2><p id="approvalState" class="muted"></p></div><div class="button-row no-print"><button id="saveMinutes" class="btn btn-primary" type="button">Save draft</button><button id="approveMinutes" class="btn btn-outline hidden" type="button">Approve</button><button id="printMinutes" class="btn btn-outline" type="button">Print / Save PDF</button></div></div>
+            <div class="field"><label for="minutesContent">Official minutes</label><textarea id="minutesContent" class="minutes-editor"></textarea></div>
+            <h2 class="mt-24">Decisions</h2>
+            <div id="decisionList" class="list"><p class="empty-state">No decisions recorded.</p></div>
+            <form id="decisionForm" class="button-row no-print mt-16">
+                <input id="decisionInput" class="toolbar-input" maxlength="5000" placeholder="Record a decision" required>
+                <button class="btn btn-outline" type="submit">Add decision</button>
+            </form>
+            <h2 class="mt-24">Action items</h2>
+            <div id="actionList" class="list"><p class="empty-state">No action items recorded.</p></div>
+            <form id="actionForm" class="form-grid no-print mt-16">
+                <div class="field"><label for="actionDescription">Action item</label><input id="actionDescription" maxlength="2000" required></div>
+                <div class="field"><label for="actionAssignee">Assign to</label><select id="actionAssignee"><option value="">Unassigned</option></select></div>
+                <div class="field"><label for="actionDueDate">Due date</label><input id="actionDueDate" type="date"></div>
+                <div class="field button-row field-end"><button class="btn btn-outline" type="submit">Add action item</button></div>
+            </form>
+        </section>
+    </main>
+    <script src="/assets/js/workspace.js" defer></script>
+</body>
+</html>

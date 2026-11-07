@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KAKESA | Meeting Management System</title>
+
+    <meta name="description"
+        content="KAKESA is a modern meeting management platform for organizing meetings, members, attendance and minutes.">
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="#" class="brand">
+            <span class="brand-icon">K</span>
+            <span>KAKESA</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="btn btn-outline" id="openLogin">
+                Login
+            </button>
+
+            <button class="btn btn-primary" id="openRegister">
+                Get Started
+            </button>
+        </div>
+
+        <button class="mobile-menu" id="mobileMenu">☰</button>
+    </header>
+
+    <main>
+
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="eyebrow">
+                    <span class="status-dot"></span>
+                    SMARTER MEETINGS. BETTER DECISIONS.
+                </div>
+
+                <h1>
+                    Meetings made
+                    <span>simple and productive.</span>
+                </h1>
+
+                <p>
+                    KAKESA brings your members, meetings, discussions,
+                    attendance and official minutes together in one
+                    secure digital workspace.
+                </p>
+
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-large" id="heroRegister">
+                        Create an Account →
+                    </button>
+
+                    <a href="#features" class="btn btn-light btn-large">
+                        Explore Features
+                    </a>
+                </div>
+
+                <div class="hero-note">
+                    <span>✓</span> Organized meetings
+                    <span>✓</span> Clear records
+                    <span>✓</span> Better collaboration
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="dashboard-preview">
+                    <div class="preview-top">
+                        <div>
+                            <small>YOUR WORKSPACE</small>
+                            <h3>Meeting Overview</h3>
+                        </div>
+                        <span class="preview-avatar">K</span>
+                    </div>
+
+                    <div class="preview-stats">
+                        <div class="preview-card">
+                            <span>Meetings</span>
+                            <strong>Plan</strong>
+                            <small>Timed or untimed</small>
+                        </div>
+
+                        <div class="preview-card">
+                            <span>Members</span>
+                            <strong>Invite</strong>
+                            <small>Role-aware access</small>
+                        </div>
+
+                        <div class="preview-card">
+                            <span>Minutes</span>
+                            <strong>Record</strong>
+                            <small>Decisions and actions</small>
+                        </div>
+                    </div>
+
+                    <div class="preview-meeting">
+                        <div class="meeting-symbol">M</div>
+                        <div>
+                            <strong>Management Meeting</strong>
+                            <small>Agenda and attendance</small>
+                        </div>
+                        <span class="meeting-status">Upcoming</span>
+                    </div>
+
+                    <div class="preview-meeting">
+                        <div class="meeting-symbol purple">D</div>
+                        <div>
+                            <strong>Department Meeting</strong>
+                            <small>Discussion and decisions</small>
+                        </div>
+                        <span class="meeting-status completed">Completed</span>
+                    </div>
+
+                    <div class="preview-progress">
+                        <div>
+                            <span>Meeting organization</span>
+                            <strong>85%</strong>
+                        </div>
+                        <div class="progress-bar">
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="floating-note">
+                    <span class="note-icon">✓</span>
+                    <div>
+                        <strong>Everything organized</strong>
+                        <small>Your meetings in one place</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trust-strip">
+            <div>
+                <strong>01</strong>
+                <span>Organize meetings</span>
+            </div>
+
+            <div>
+                <strong>02</strong>
+                <span>Manage members</span>
+            </div>
+
+            <div>
+                <strong>03</strong>
+                <span>Record decisions</span>
+            </div>
+
+            <div>
+                <strong>04</strong>
+                <span>Access minutes</span>
+            </div>
+        </section>
+
+        <section class="features section" id="features">
+            <div class="section-heading">
+                <span class="section-label">WHAT KAKESA OFFERS</span>
+                <h2>Everything your meetings need.</h2>
+                <p>
+                    Tools designed to make meetings easier to plan,
+                    conduct and document.
+                </p>
+            </div>
+
+            <div class="feature-grid">
+
+                <article class="feature-card">
+                    <div class="feature-icon blue">▦</div>
+                    <h3>Meeting Scheduling</h3>
+                    <p>
+                        Create timed and untimed meetings, set agendas
+                        and invite participants.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon green">♙</div>
+                    <h3>Member Management</h3>
+                    <p>
+                        Manage registered members and assign
+                        administrator, chairperson and secretary roles.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon orange">◷</div>
+                    <h3>Meeting Countdown</h3>
+                    <p>
+                        Track the scheduled end time using the server
+                        clock. Live timer broadcasts are on the roadmap.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon purple">▤</div>
+                    <h3>Meeting Minutes</h3>
+                    <p>
+                        Organize transcripts, decisions, action items
+                        and official meeting records.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon red">◉</div>
+                    <h3>Live Meetings</h3>
+                    <p>
+                        Live audio and video are planned and require a
+                        separate real-time media service.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon teal">↓</div>
+                    <h3>PDF Reports</h3>
+                    <p>
+                        Print approved meeting minutes or save them
+                        as PDF from your browser.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="about section" id="about">
+            <div class="about-box">
+                <div>
+                    <span class="section-label">ABOUT KAKESA</span>
+                    <h2>Better coordination. Stronger accountability.</h2>
+                    <p>
+                        KAKESA is designed to help organizations manage
+                        their meetings digitally. It brings together
+                        meeting planning, member participation,
+                        attendance tracking and meeting documentation.
+                    </p>
+                </div>
+
+                <div class="about-highlight">
+                    <strong>One platform.</strong>
+                    <span>From planning to approved minutes.</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <a href="#" class="brand">
+            <span class="brand-icon">K</span>
+            <span>KAKESA</span>
+        </a>
+
+        <p>© <span id="year"></span> KAKESA. All rights reserved.</p>
+        <span>Connect. Meet. Decide. Record.</span>
+    </footer>
+
+    <!-- LOGIN AND REGISTRATION MODAL -->
+    <div class="modal" id="authModal">
+        <div class="modal-box">
+            <button class="modal-close" id="closeModal">×</button>
+
+            <div class="modal-brand">
+                <span class="brand-icon">K</span>
+                <h2>KAKESA</h2>
+            </div>
+
+            <div id="loginPanel">
+                <h3>Welcome back</h3>
+                <p>Sign in to your KAKESA account.</p>
+
+                <form id="loginForm">
+                    <label>Email address</label>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Enter your password" required>
+
+                    <button class="btn btn-primary form-button" type="submit">
+                        Sign In
+                    </button>
+                </form>
+
+                <p class="switch-text">
+                    Don't have an account?
+                    <button id="showRegister">Register here</button>
+                </p>
+            </div>
+
+            <div id="registerPanel" class="hidden">
+                <h3>Create your account</h3>
+                <p>Join KAKESA and organize your meetings.</p>
+
+                <form id="registerForm">
+                    <label>Full name</label>
+                    <input type="text" name="fullName" placeholder="Enter your full name" required>
+
+                    <label>Email address</label>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="At least 10 characters" minlength="10" required>
+
+                    <button class="btn btn-primary form-button" type="submit">
+                        Create Account
+                    </button>
+                </form>
+
+                <p class="switch-text">
+                    Already have an account?
+                    <button id="showLogin">Sign in</button>
+                </p>
+            </div>
+
+            <div id="formMessage" class="form-message" role="status"></div>
+        </div>
+    </div>
+
+    <script src="/assets/js/app-main.js"></script>
+
+</body>
+
+</html>

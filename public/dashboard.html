@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your KAKESA meeting management workspace.">
+    <title>Dashboard | KAKESA</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="brand"><span class="brand-icon">K</span><span>KAKESA</span></a>
+        <nav class="workspace-nav" aria-label="Workspace">
+            <a href="/dashboard.html" aria-current="page">Dashboard</a>
+            <a href="/pages/meetings.html">Meetings</a>
+            <a href="/pages/members.html" id="membersLink">Members</a>
+            <a href="/pages/minutes.html">Minutes</a>
+        </nav>
+        <button class="btn btn-outline" id="logoutButton" type="button">Log out</button>
+    </header>
+
+    <main class="workspace">
+        <div class="workspace-header">
+            <div>
+                <span class="section-label">MEMBER WORKSPACE</span>
+                <h1>Welcome, <span id="memberName">...</span></h1>
+                <p id="accountRole" class="muted">Loading your workspace...</p>
+            </div>
+            <a class="btn btn-primary" href="/pages/meetings.html">Manage meetings</a>
+        </div>
+        <div id="pageMessage" class="message" role="status"></div>
+        <section class="workspace-grid" aria-label="KAKESA statistics">
+            <div class="workspace-card"><span>Meetings</span><strong id="meetingCount">—</strong></div>
+            <div class="workspace-card"><span>Upcoming meetings</span><strong id="upcomingCount">—</strong></div>
+            <div class="workspace-card"><span>Unread notifications</span><strong id="notificationCount">—</strong></div>
+        </section>
+        <section class="panel">
+            <div class="panel-head">
+                <h2>Recent meetings</h2>
+                <a href="/pages/meetings.html">View all</a>
+            </div>
+            <div id="recentMeetings" class="list">
+                <p class="empty-state">Loading meetings...</p>
+            </div>
+        </section>
+        <section class="panel">
+            <h2>Notifications</h2>
+            <div id="notificationList" class="list"><p class="empty-state">Loading notifications...</p></div>
+        </section>
+        <section class="panel">
+            <h2>Account information</h2>
+            <p><strong>Name:</strong> <span id="accountName"></span></p>
+            <p><strong>Email:</strong> <span id="accountEmail"></span></p>
+            <p><strong>Role:</strong> <span id="accountRoleDetails"></span></p>
+        </section>
+    </main>
+    <script src="/assets/js/dashboard.js" defer></script>
+</body>
+</html>
