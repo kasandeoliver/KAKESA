@@ -11,10 +11,11 @@ const db = require("./src/config/database");
 
 const app = express();
 const isProduction = process.env.NODE_ENV === "production";
-
-if (isProduction && (!process.env.SESSION_SECRET || process.env.SESSION_SECRET.length < 32)) {
-    throw new Error("SESSION_SECRET must contain at least 32 characters in production.");
-}
+const hasProductionSessionSecret =
+    typeof process.env.SESSION_SECRET === "string"
+    && process.env.SESSION_SECRET.length >= 32;
+const productionApiConfigured =
+    !isProduction || (Boolean(process.env.DATABASE_URL) && hasProductionSessionSecret);
 
 app.disable("x-powered-by");
 if (process.env.TRUST_PROXY === "true") {
@@ -51,7 +52,7 @@ const sessionOptions = {
     }
 };
 
-if (process.env.DATABASE_URL) {
+if (process.env.DATABASE_URL && (!isProduction || hasProductionSessionSecret)) {
     const PgSession = connectPgSimple(session);
     sessionOptions.store = new PgSession({
         pool: db.getPool(),
@@ -59,14 +60,23 @@ if (process.env.DATABASE_URL) {
         createTableIfMissing: true,
         pruneSessionInterval: 15 * 60
     });
-} else if (isProduction) {
-    throw new Error("DATABASE_URL must be set in production.");
-} else {
+} else if (!isProduction) {
     console.warn("DATABASE_URL is not configured; database-backed APIs will be unavailable.");
 }
 
-app.use(session(sessionOptions));
-app.use(express.static(path.join(__dirname, "public")));
+if (productionApiConfigured || !isProduction) {
+    app.use(session(sessionOptions));
+} else {
+    console.warn("Production API is disabled until DATABASE_URL and a 32-character SESSION_SECRET are configured.");
+}
+
+if (process.env.VERCEL !== "1") {
+    app.use(express.static(path.join(__dirname, "public")));
+}
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 app.use("/api", (req, res, next) => {
     if (!["POST", "PUT", "PATCH", "DELETE"].includes(req.method)) return next();
@@ -121,6 +131,16 @@ app.get("/api/health", async (req, res) => {
                 : "PostgreSQL is unavailable. Check DATABASE_URL and the database service."
         });
     }
+});
+
+app.use("/api", (req, res, next) => {
+    if (!productionApiConfigured) {
+        return res.status(503).json({
+            success: false,
+            message: "Configure DATABASE_URL and a SESSION_SECRET of at least 32 characters in Vercel Project Settings."
+        });
+    }
+    next();
 });
 
 app.use("/api/auth", require("./src/routes/auth.routes"));

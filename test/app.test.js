@@ -31,6 +31,15 @@ test("serves the KAKESA homepage with security headers", async () => {
     assert.ok(response.headers.has("content-security-policy"));
 });
 
+test("serves the homepage from the explicit root route used by Vercel", async () => {
+    const response = await fetch(`${baseUrl}/`);
+    const html = await response.text();
+
+    assert.equal(response.status, 200);
+    assert.match(html, /\/assets\/css\/style\.css/);
+    assert.match(html, /KAKESA/);
+});
+
 test("serves workspace pages and their shared assets", async () => {
     for (const resource of [
         "/dashboard.html",

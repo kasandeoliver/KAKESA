@@ -74,6 +74,12 @@ The current version does not yet include distributed WebSocket timers/notificati
 
 Deploy the Express server and PostgreSQL database to hosting that supports both long-running Node.js processes and PostgreSQL. Configure environment variables in the hosting dashboard, require HTTPS, restrict database network access, and run backups. For multi-instance deployments, keep sessions in PostgreSQL (or another shared session store) and avoid process-local state. Apply the schema before serving traffic if the deployment platform does not run `server.js` initialization.
 
+### Vercel
+
+The root `index.js` exports the Express application for Vercel's zero-configuration Express support. Set the Vercel project **Root Directory** to the repository root and deploy the `main` branch. Vercel serves files under `public/` as static assets; the Express `express.static()` middleware is therefore only enabled for local development. The explicit `/` route serves `public/index.html` when the request reaches the Express function.
+
+Add `DATABASE_URL` and a unique `SESSION_SECRET` of at least 32 characters under **Project Settings → Environment Variables** for Production (and Preview if used), then redeploy. Without them the homepage remains available, `/api/health` reports the missing database, and account/meeting APIs return `503` rather than failing the website deployment.
+
 ## Proposed Business Model Canvas
 
 | Building block | KAKESA proposal |
